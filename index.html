@@ -9,3 +9,34 @@
 <body>
 <main class="app">
 <h1>NPI Lookup</h1>
+<section class="card">
+<h2>Search by NPI Number</h2>
+<label for="npiNumber">NPI Number</label>
+<div class="row">
+<input id="npiNumber" type="text" inputmode="numeric" maxlength="10" placeholder="Enter 10-digit NPI" />
+<button id="searchByNumber">Search</button>
+</div>
+<p class="hint">ChatGPT-readable page format: <code>/npi/1234567890</code></p>
+</section>
+<section class="card">
+<h2>Search by Name or Organization</h2>
+<label for="firstName">First Name</label>
+<input id="firstName" type="text" placeholder="First name" />
+<label for="lastName">Last Name</label>
+<input id="lastName" type="text" placeholder="Last name" />
+<label for="organizationName">Organization Name</label>
+<input id="organizationName" type="text" placeholder="Organization name" />
+<label for="state">State</label>
+<input id="state" type="text" maxlength="2" placeholder="NY" />
+<button id="searchByName">Search</button>
+<p class="hint">ChatGPT-readable search format: <code>/search?last_name=Smith&amp;state=NY&amp;limit=10</code></p>
+</section>
+<section class="card">
+<h2>Results</h2>
+<div id="status"></div>
+<pre id="results"></pre>
+</section>
+</main>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
