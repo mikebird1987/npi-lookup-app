@@ -50,7 +50,11 @@ setStatus(error.message);
 searchByNameButton.addEventListener("click", async () => {
 const first_name = firstNameInput.value.trim();
 const last_name = lastNameInput.value.trim();
-const organization_name = organizationNameInput.value.trim();return;
+const organization_name = organizationNameInput.value.trim();
+const state = stateInput.value.trim().toUpperCase();
+if (!first_name && !last_name && !organization_name) {
+setStatus("Enter a name or organization to search.");
+  return;
 }
 try {
 const data = await fetchNpi({ first_name, last_name, organization_name, state, limit: "25" });
@@ -60,6 +64,3 @@ showResults(data);
 setStatus(error.message);
 }
 });
-const state = stateInput.value.trim().toUpperCase();
-if (!first_name && !last_name && !organization_name) {
-setStatus("Enter a name or organization to search.");
